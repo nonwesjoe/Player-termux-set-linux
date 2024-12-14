@@ -43,5 +43,14 @@ cat<<EOL>arch
 su -c "sh $HOME/sh/start.sh"
 EOL
 
+chmod +x arch
 echo 'export PATH=$PATH:$HOME/.shortcuts' >> /data/data/com.termux/files/usr/etc/termux-login.sh
+
+pkg install neofetch
+neofetch
+echo "====================================================================================="
 echo run "arch" to login
+
+cd --
+sudo cp init.sh /data/local/tmp/arch/
+echo "run exit to restart termux and run arch to login"
