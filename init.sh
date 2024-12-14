@@ -30,4 +30,7 @@ groupadd -g 3004 aid_net_raw
 groupadd -g 1003 aid_graphics
 usermod -G 3003 -a root
 
+echo '-------------update---------------'
+pacman -Syu
+
 echo 'run pacman -Syu (if fail try again and again)'
