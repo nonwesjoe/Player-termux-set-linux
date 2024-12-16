@@ -1,3 +1,4 @@
+# git clone and go into the Directory
 # Run run.sh first
 * relaunch termux.
 * then you get arch installed (run arch to login)
