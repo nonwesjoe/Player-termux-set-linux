@@ -51,6 +51,5 @@ neofetch
 echo "====================================================================================="
 echo run "arch" to login
 
-cd --
-sudo cp init.sh /data/local/tmp/arch/
+sudo cp /data/data/com.termux/files/home/termux-set-arch/init.sh /data/local/tmp/arch/
 echo "run exit to restart termux and run arch to login"
