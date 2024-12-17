@@ -12,6 +12,14 @@ cat<<EOL>locale.conf
 LANG=en_US.UTF-8
 EOL
 
+cat<<EOL>.bashrc
+#!/bin/bash
+clear
+neofetch
+EOL
+
+chmod +x /.bashrc
+
 mv -vf resolv.conf /etc/resolv.conf
 mv -vf hosts /etc/hosts
 mv -vf locale.conf /etc/locale.conf
@@ -34,3 +42,4 @@ echo '-------------update---------------'
 pacman -Syu
 
 echo 'run pacman -Syu (if fail try again and again)'
+echo 'remember to install neofetch later'
