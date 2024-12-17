@@ -33,7 +33,7 @@ busybox mount -t devpts devpts \$mnt/dev/pts/
 busybox mount -o bind /sdcard \$mnt/media/sdcard
 busybox mount -t tmpfs /cache \$mnt/var/cache
 busybox mount -t tmpfs -o size=256M tmpfs \$mnt/dev/shm
-busybox chroot \$mnt /bin/su - root
+busybox chroot \$mnt /bin/su - root -c "bash"
 EOL
 
 sudo chmod +x start.sh  
