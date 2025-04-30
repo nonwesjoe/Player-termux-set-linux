@@ -1,17 +1,17 @@
 #!/bin/bash
-# get arch in your rooted phone
+
 pkg update -y  
 pkg install wget root-repo tar expect -y  
 pkg update && pkg install tsu -y   
 echo done with the first step  
 
 # second strp
-echo second step to get arch
+echo second step to get debian
 cd /data/local/tmp  
-sudo wget https://github.com/nonwesjoe/termux-set-arch/releases/download/archarm/ArchLinuxARM-aarch64-latest.tar.gz
-sudo mkdir arch
-cd arch
-sudo tar xvf /data/local/tmp/ArchLinuxARM-aarch64-latest.tar.gz --numeric-owner 
+sudo wget wget https://github.com/LinuxDroidMaster/Termux-Desktops/releases/download/Debian/debian12-arm64.tar.gz
+sudo mkdir debian
+cd debian
+sudo tar xvf /data/local/tmp/debian12-arm64.tar.gz --numeric-owner 
 sudo mkdir media
 sudo mkdir media/sdcard
 sudo mkdir dev/shm
@@ -22,9 +22,9 @@ cd $HOME
 mkdir .shortcuts
 mkdir sh
 cd sh
-cat<<EOL>start.sh
+cat<<EOL>startdebian.sh
 #!/bin/sh
-mnt="/data/local/tmp/arch"
+mnt="/data/local/tmp/debian"
 busybox mount -o remount,dev,suid /data
 mount -o bind /dev \mnt/dev/
 busybox mount -t proc proc \$mnt/proc/
@@ -36,20 +36,20 @@ busybox mount -t tmpfs -o size=256M tmpfs \$mnt/dev/shm
 busybox chroot \$mnt /bin/su - root -c "bash"
 EOL
 
-sudo chmod +x start.sh  
+sudo chmod +x startdebian.sh  
 cd ~/.shortcuts  
-cat<<EOL>arch
+cat<<EOL>debian
 #!/bin/bash
-su -c "sh $HOME/sh/start.sh"
+su -c "sh $HOME/sh/startdebian.sh"
 EOL
 
-chmod +x arch
+chmod +x debian
 echo 'export PATH=$PATH:$HOME/.shortcuts' >> /data/data/com.termux/files/usr/etc/termux-login.sh
 
 pkg install neofetch
 neofetch
 echo "====================================================================================="
-echo run "arch" to login
+echo run "debian" to login
 
-sudo cp /data/data/com.termux/files/home/termux-set-arch/init.sh /data/local/tmp/arch/
-echo "run exit to restart termux and run arch to login"
+sudo cp /data/data/com.termux/files/home/termux-set-debian/init.sh /data/local/tmp/debian/
+echo "run exit to restart termux and run debian to login"
