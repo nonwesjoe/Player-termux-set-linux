@@ -9,3 +9,5 @@
 * then you get debian installed (run debian to login)
 # copy init.sh to /data/local/tmp/debian/
 * then login debian and run 'sh /init.sh'
+# showcase
+* ![showcase](debian.jpg)
